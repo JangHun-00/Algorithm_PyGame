@@ -25,9 +25,9 @@ while True:
     pygame.draw.rect(screen, BLACK, (0, 300, 150, 30))
     pygame.draw.rect(screen, BLACK, (1150, 300, 150, 30))
     for i in range(6):
-        pygame.draw.rect(screen, BLACK, (150 + i * 172.5, 400, 137.5, 137.5), 10)
+        pygame.draw.rect(screen, BLACK, (150 + i * 172.5, 231.25, 137.5, 137.5), 10)
     for k in range(5):
-        pygame.draw.rect(screen, BLACK, (150 + k * 210, 200, 160, 160), 10)
+        pygame.draw.rect(screen, BLACK, (150 + k * 213, 226, 148, 148), 10)
 
     pygame.display.update()
 
