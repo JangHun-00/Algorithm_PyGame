@@ -1,8 +1,7 @@
 import pygame
 import sys
 import random
-import copy
-
+from time import sleep
 
 pygame.init()
 
@@ -163,9 +162,6 @@ class Block:
     def __float__(self):
         return self.num
 
-    def __repr__(self):
-        return "{}".format(self.num)
-
     def draw(self, info, color=BLACK, line=10):
         pygame.draw.rect(screen, color, info, line)
         num_font = pygame.font.Font('D2CodingBold-Ver1.3.2-20180524.ttf', round(info[2]/2))
@@ -176,7 +172,7 @@ class Block:
 
 def select_length():
     while True:
-        clock.tick(60)
+        clock.tick(30)
         screen.fill(YELLOW_BRIGHT)
 
         for event in pygame.event.get():
@@ -188,102 +184,49 @@ def select_length():
 
 
 def show_bubblesort(data_list):
-    global index, bubble_process
-    index = 0
-    bubble_process = bubble_result(data_list)
     while True:
-        clock.tick(60)
-        screen.fill(YELLOW_BRIGHT)
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-
-        bubble_process[index][0](bubble_process[index][1], bubble_process[index][2])
-        print("index: {}".format(index))
-        pygame.display.update()
-
+        clock.tick(30)
 
 def bubble_result(data_list):
-    global index, bubble_process
     result = []
     for check in range(len(data_list)-1, 0, -1):
         for i in range(check):
-            tmp_list = copy.deepcopy(data_list)
-            result.append((bubble_draw, tmp_list, i))
+
             if data_list[i] > data_list[i+1]:
-                tmp_list2 = copy.deepcopy(data_list)
-                result.append((bubble_change, tmp_list2, i))
                 temp = data_list[i]
                 data_list[i] = data_list[i+1]
                 data_list[i+1] = temp
+
     return result
 
 
 def bubble_draw(data_list, tmp, color=BLACK, line=10):
-    global index, bubble_process
     (start_x, start_y, block_size, blank) = checkBlock(data_list)
-    while True:
-        clock.tick(60)
-        screen.fill(YELLOW_BRIGHT)
-        done = False
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-
-            if event.type in [pygame.KEYUP]:
-                if event.key == pygame.K_LEFT:
-                    if index > 0:
-                        index -= 1
-                        done = True
-
-                elif event.key == pygame.K_RIGHT:
-                    if index < len(bubble_process) - 1:
-                        index += 1
-                        done = True
-
-        for i, block in enumerate(data_list):
-            block_info = ((start_x)+i*(block_size+blank), start_y, block_size, block_size)
-            block.draw(block_info, color, line)
-            if i == tmp:
-                red_box1_place = ((start_x)+i*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
-                red_box2_place = ((start_x)+(i+1)*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
-                pygame.draw.rect(screen, RED, red_box1_place)
-                pygame.draw.rect(screen, RED, red_box2_place)
-        pygame.display.update()
-        if done == True:
-            break
+    for i, block in enumerate(data_list):
+        block_info = ((start_x)+i*(block_size+blank), start_y, block_size, block_size)
+        block.draw(block_info, color, line)
+        if i == tmp:
+            red_box1_place = ((start_x)+i*(block_size+blank)-20, start_y+block_size+30, block_size+40, 30)
+            red_box2_place = ((start_x)+(i+1)*(block_size+blank)-20, start_y+block_size+30, block_size+40, 30)
+            pygame.draw.rect(screen, RED, red_box1_place)
+            pygame.draw.rect(screen, RED, red_box2_place)
 
 
 def bubble_change(data_list, tmp, color=BLACK, line=10):
-    global index, bubble_process
     (start_x, start_y, block_size, blank) = checkBlock(data_list)
     front_x = (start_x)+tmp*(block_size+blank)
     back_x = (start_x)+(tmp+1)*(block_size+blank)
     distance = back_x - front_x
-    move = 5
+    move = 10
 
     while True:
-        clock.tick(60)
+        clock.tick(30)
         screen.fill(YELLOW_BRIGHT)
-        done = False
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type in [pygame.KEYUP]:
-                if event.key == pygame.K_LEFT:
-                    if index > 0:
-                        index -= 1
-                        done = True
-                elif event.key == pygame.K_RIGHT:
-                    if index < len(bubble_process) - 1:
-                        index += 1
-                        done = True
 
         for i, block in enumerate(data_list):
             if i == tmp or i == tmp + 1:
@@ -312,8 +255,6 @@ def bubble_change(data_list, tmp, color=BLACK, line=10):
                 block_info = ((start_x) + i * (block_size + blank), start_y, block_size, block_size)
                 block.draw(block_info, color, line)
         pygame.display.update()
-        if done == True:
-            break
 
 
 
@@ -323,8 +264,26 @@ def bubble_change(data_list, tmp, color=BLACK, line=10):
 
 # 메인 화면 -> 리스트에 들어갈 원소 선택(1~50) (길이가 3 미만 10 초과면 다음 단계 실행 막기)
 # -> 정렬 or 탐색 선택 -> 실행
+
+a = Block(10)
+b = Block(8)
+c = Block(4)
+d = Block(9)
+e = Block(6)
+
+data_list = [a,b,c,d,e]
+
+tmp = 2; color = BLACK; line = 10
+
+(start_x, start_y, block_size, blank) = checkBlock(data_list)
+front_x = (start_x) + tmp * (block_size + blank)
+back_x = (start_x) + (tmp + 1) * (block_size + blank)
+distance = back_x - front_x
+move = 10
+
+    
 while True:
-    clock.tick(60)
+    clock.tick(30)
     screen.fill(YELLOW_BRIGHT)
 
     for event in pygame.event.get():
@@ -332,16 +291,30 @@ while True:
             pygame.quit()
             sys.exit()
 
-    a = Block(10)
-    b = Block(8)
-    c = Block(4)
-    d = Block(9)
-    e = Block(6)
+    for i, block in enumerate(data_list):
+        if i == tmp or i == tmp+1:
+            if move > distance:
+                move = distance
 
-    my_list = [a, b, c, d, e]
+            if i == tmp:
+                red_box1_place = ((start_x) + i * (block_size + blank) - 20, start_y + block_size + 30, block_size + 40, 10)
+                red_box2_place = ((start_x) + (i + 1) * (block_size + blank) - 20, start_y + block_size + 30, block_size + 40, 10)
+                pygame.draw.rect(screen, RED, red_box1_place)
+                pygame.draw.rect(screen, RED, red_box2_place)
 
-    show_bubblesort(my_list)
+                block_info = ((start_x) + (i+1) * (block_size + blank) - distance, start_y, block_size, block_size)
+                block.draw(block_info, color, line)
+            elif i == tmp+1:
+                block_info = ((start_x) + (i-1) * (block_size + blank) + distance, start_y, block_size, block_size)
+                block.draw(block_info, color, line)
+
+            distance -= move
+
+        else:
+            block_info = ((start_x) + i * (block_size + blank), start_y, block_size, block_size)
+            block.draw(block_info, color, line)
 
     pygame.display.update()
 
 pygame.quit()
+
