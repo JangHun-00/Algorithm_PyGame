@@ -28,19 +28,25 @@ game_name = pygame.display.set_caption("Learning Algorithm")
 
 clock = pygame.time.Clock()
 
+
 def drawObject(obj, x, y):
     global screen
     screen.blit(obj, (x, y))
 
 
-def writeText(text, x, y, size, font='D2', color=(0, 0, 0)):
+def writeText(text, x, y, size, font='D2', color=BLACK, rect=None):
     if font == 'D2':
         textfont = pygame.font.Font('D2CodingBold-Ver1.3.2-20180524.ttf', size)
     elif font == '도현':
         textfont = pygame.font.Font('배달의민족_도현.ttf', size)
 
     text = textfont.render("{}".format(text), True, color)
-    drawObject(text, x, y)
+
+    if rect == 'center':
+        text_rect = text.get_rect(center=(x, y))
+        screen.blit(text, text_rect)
+    else:
+        screen.blit(text, (x, y))
 
 
 def createButton(color, x, y, width, height, line=0):
@@ -200,8 +206,8 @@ def show_bubblesort(data_list):
                 pygame.quit()
                 sys.exit()
 
+
         bubble_process[index][0](bubble_process[index][1], bubble_process[index][2])
-        print("index: {}".format(index))
         pygame.display.update()
 
 
@@ -245,14 +251,28 @@ def bubble_draw(data_list, tmp, color=BLACK, line=10):
                         index += 1
                         done = True
 
+        writeText('Bubble Sort(버블 정렬)', 20, 20, 30, '도현')
+
         for i, block in enumerate(data_list):
             block_info = ((start_x)+i*(block_size+blank), start_y, block_size, block_size)
             block.draw(block_info, color, line)
             if i == tmp:
-                red_box1_place = ((start_x)+i*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
-                red_box2_place = ((start_x)+(i+1)*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
-                pygame.draw.rect(screen, RED, red_box1_place)
-                pygame.draw.rect(screen, RED, red_box2_place)
+                writeText('{} vs {} 비교'.format(data_list[i].num, data_list[i+1].num), 650, 100, 40, '도현', BLACK, 'center')
+
+                red_box1 = pygame.Rect((start_x)+i*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
+                red_box2 = pygame.Rect((start_x)+(i+1)*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
+                down_red1 = pygame.Rect((0, 0), (10, round(block_size/2)))
+                down_red1.center = red_box1.center
+                down_red1.top = red_box1.top
+                down_red2 = pygame.Rect((0, 0), (10, round(block_size/2)))
+                down_red2.center = red_box2.center
+                down_red2.top = red_box2.top
+                down_red3 = pygame.Rect(down_red1.left, down_red1.bottom-10, down_red2.right - down_red1.left ,10)
+                pygame.draw.rect(screen, RED, red_box1)
+                pygame.draw.rect(screen, RED, red_box2)
+                pygame.draw.rect(screen, RED, down_red1)
+                pygame.draw.rect(screen, RED, down_red2)
+                pygame.draw.rect(screen, RED, down_red3)
         pygame.display.update()
         if done == True:
             break
@@ -285,18 +305,31 @@ def bubble_change(data_list, tmp, color=BLACK, line=10):
                         index += 1
                         done = True
 
+        writeText('Bubble Sort(버블 정렬)', 20, 20, 30, '도현')
+
         for i, block in enumerate(data_list):
             if i == tmp or i == tmp + 1:
                 if move > distance:
                     move = distance
 
                 if i == tmp:
-                    red_box1_place = (
-                    (start_x) + i * (block_size + blank) - 20, start_y + block_size + 30, block_size + 40, 10)
-                    red_box2_place = (
-                    (start_x) + (i + 1) * (block_size + blank) - 20, start_y + block_size + 30, block_size + 40, 10)
-                    pygame.draw.rect(screen, RED, red_box1_place)
-                    pygame.draw.rect(screen, RED, red_box2_place)
+                    writeText('{} > {} 이므로 작은 값이 앞으로 오도록 교체'.format(data_list[i].num, data_list[i + 1].num), 650, 100, 40, '도현', BLACK, 'center')
+                    red_box1 = pygame.Rect((start_x) + i * (block_size + blank) - 20, start_y + block_size + 30,
+                                           block_size + 40, 10)
+                    red_box2 = pygame.Rect((start_x) + (i + 1) * (block_size + blank) - 20, start_y + block_size + 30,
+                                           block_size + 40, 10)
+                    down_red1 = pygame.Rect((0, 0), (10, round(block_size / 2)))
+                    down_red1.center = red_box1.center
+                    down_red1.top = red_box1.top
+                    down_red2 = pygame.Rect((0, 0), (10, round(block_size / 2)))
+                    down_red2.center = red_box2.center
+                    down_red2.top = red_box2.top
+                    down_red3 = pygame.Rect(down_red1.left, down_red1.bottom - 10, down_red2.right - down_red1.left, 10)
+                    pygame.draw.rect(screen, RED, red_box1)
+                    pygame.draw.rect(screen, RED, red_box2)
+                    pygame.draw.rect(screen, RED, down_red1)
+                    pygame.draw.rect(screen, RED, down_red2)
+                    pygame.draw.rect(screen, RED, down_red3)
 
                     block_info = (
                     (start_x) + (i + 1) * (block_size + blank) - distance, start_y, block_size, block_size)
