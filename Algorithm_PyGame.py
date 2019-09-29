@@ -13,6 +13,7 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 YELLOW_BRIGHT = (255, 255, 224)
+GREY = (169, 169, 169)
 
 Dark = {
     RED: (200, 0, 0),
@@ -193,7 +194,7 @@ def select_length():
         pygame.display.update()
 
 
-def show_bubblesort(data_list):
+def show_bubble(data_list):
     global index, bubble_process
     index = 0
     bubble_process = bubble_result(data_list)
@@ -257,7 +258,7 @@ def bubble_draw(data_list, tmp, color=BLACK, line=10):
             block_info = ((start_x)+i*(block_size+blank), start_y, block_size, block_size)
             block.draw(block_info, color, line)
             if i == tmp:
-                writeText('{} vs {} 비교'.format(data_list[i].num, data_list[i+1].num), 650, 100, 40, '도현', BLACK, 'center')
+                writeText('{} vs {} 비교'.format(data_list[i].num, data_list[i+1].num), 650, 150, 40, '도현', BLACK, 'center')
 
                 red_box1 = pygame.Rect((start_x)+i*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
                 red_box2 = pygame.Rect((start_x)+(i+1)*(block_size+blank)-20, start_y+block_size+30, block_size+40, 10)
@@ -313,7 +314,7 @@ def bubble_change(data_list, tmp, color=BLACK, line=10):
                     move = distance
 
                 if i == tmp:
-                    writeText('{} > {} 이므로 작은 값이 앞으로 오도록 교체'.format(data_list[i].num, data_list[i + 1].num), 650, 100, 40, '도현', BLACK, 'center')
+                    writeText('{} > {} 이므로 작은 값이 앞으로 오도록 교체'.format(data_list[i].num, data_list[i + 1].num), 650, 150, 40, '도현', BLACK, 'center')
                     red_box1 = pygame.Rect((start_x) + i * (block_size + blank) - 20, start_y + block_size + 30,
                                            block_size + 40, 10)
                     red_box2 = pygame.Rect((start_x) + (i + 1) * (block_size + blank) - 20, start_y + block_size + 30,
@@ -349,6 +350,90 @@ def bubble_change(data_list, tmp, color=BLACK, line=10):
             break
 
 
+def show_selection(data_list):
+    global index, selection_process
+    index = 0
+    selection_process = selection_result(data_list)
+    while True:
+        clock.tick(60)
+        screen.fill(YELLOW_BRIGHT)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        selection_process[index][0](selection_process[index][1], selection_process[index][2], selection_process[index][3])
+        pygame.display.update()
+
+
+
+def selection_result(data_list):
+    global index, selection_process
+    result = []
+    for i in range(len(data_list) - 1):
+        min_position = i
+        for k in range(i + 1, len(data_list)):
+            if data_list[k] < data_list[min_position]:
+                min_position = k
+
+        if min_position != i:
+            tmp = data_list[i]
+            data_list[i] = data_list[min_position]
+            data_list[min_position] = tmp
+
+    return result
+
+
+def selection_draw(data_list, tmp, min, color=BLACK, line=10):
+    global index, selection_process
+    (start_x, start_y, block_size, blank) = checkBlock(data_list)
+    while True:
+        clock.tick(60)
+        screen.fill(YELLOW_BRIGHT)
+        done = False
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type in [pygame.KEYUP]:
+                if event.key == pygame.K_LEFT:
+                    if index > 0:
+                        index -= 1
+                        done = True
+
+                elif event.key == pygame.K_RIGHT:
+                    if index < len(selection_process) - 1:
+                        index += 1
+                        done = True
+
+
+def selection_change(data_list, tmp, min, color=BLACK, line=10):
+    global index, selection_process
+    (start_x, start_y, block_size, blank) = checkBlock(data_list)
+    while True:
+        clock.tick(60)
+        screen.fill(YELLOW_BRIGHT)
+        done = False
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type in [pygame.KEYUP]:
+                if event.key == pygame.K_LEFT:
+                    if index > 0:
+                        index -= 1
+                        done = True
+
+                elif event.key == pygame.K_RIGHT:
+                    if index < len(selection_process) - 1:
+                        index += 1
+                        done = True
+
 
 # 정렬 과정을 순서대로 리스트에 담기
 # 리스트에 들어갈 원소의 내용은 함수 이름과 매개변수 값
@@ -373,7 +458,7 @@ while True:
 
     my_list = [a, b, c, d, e]
 
-    show_bubblesort(my_list)
+    show_bubble(my_list)
 
     pygame.display.update()
 

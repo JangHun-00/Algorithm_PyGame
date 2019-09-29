@@ -15,10 +15,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Algorithm_PyGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="268" column="40" selection-start-line="268" selection-start-column="40" selection-end-line="268" selection-end-column="40" />
+            <state relative-caret-position="273">
+              <caret line="358" column="34" selection-start-line="358" selection-start-column="34" selection-end-line="358" selection-end-column="34" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#4779#5188#0" />
+                <element signature="e#5137#5524#0" />
+                <element signature="e#7313#9530#0" />
               </folding>
             </state>
           </provider>
@@ -95,6 +98,8 @@
       <find>blank</find>
       <find>clock.tick(</find>
       <find>writete</find>
+      <find>show_bubble</find>
+      <find>aList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,10 +118,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-33" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-8" />
     <option name="y" value="7" />
-    <option name="width" value="1943" />
+    <option name="width" value="1937" />
     <option name="height" value="1020" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -291,10 +296,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-26" y="6" width="1551" height="816" extended-state="0" />
+    <frame x="-6" y="6" width="1549" height="816" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14692257" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.116633534" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -368,10 +373,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Algorithm_PyGame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="268" column="40" selection-start-line="268" selection-start-column="40" selection-end-line="268" selection-end-column="40" />
+        <state relative-caret-position="273">
+          <caret line="358" column="34" selection-start-line="358" selection-start-column="34" selection-end-line="358" selection-end-column="34" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#4779#5188#0" />
+            <element signature="e#5137#5524#0" />
+            <element signature="e#7313#9530#0" />
           </folding>
         </state>
       </provider>
