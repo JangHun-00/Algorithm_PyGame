@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e95b9f7-ccdc-4ab4-9bfa-897ffcc6add3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Algorithm_PyGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Algorithm_PyGame.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,13 +16,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Algorithm_PyGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="358" column="34" selection-start-line="358" selection-start-column="34" selection-end-line="358" selection-end-column="34" />
+            <state relative-caret-position="167">
+              <caret line="350" column="57" lean-forward="true" selection-start-line="350" selection-start-column="57" selection-end-line="350" selection-end-column="57" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#4779#5188#0" />
-                <element signature="e#5137#5524#0" />
-                <element signature="e#7313#9530#0" />
+                <element signature="e#577#977#0" />
+                <element signature="e#577#824#1" />
+                <element signature="e#1288#1541#0" />
+                <element signature="e#1283#1434#1" />
+                <element signature="e#1570#3120#0" />
+                <element signature="e#1565#1784#1" />
+                <element signature="e#1410#1425#0" />
+                <element signature="e#3614#3850#0" />
+                <element signature="e#3595#3773#1" />
+                <element signature="e#4034#5758#0" />
+                <element signature="e#5120#5255#1" />
+                <element signature="e#7369#7831#0" />
+                <element signature="e#9727#10187#0" />
               </folding>
             </state>
           </provider>
@@ -30,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bubble_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="256" column="31" lean-forward="true" selection-start-line="214" selection-end-line="256" selection-end-column="31" />
+            <state relative-caret-position="4313">
+              <caret line="230" column="27" selection-start-line="230" selection-start-column="27" selection-end-line="230" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -100,6 +111,7 @@
       <find>writete</find>
       <find>show_bubble</find>
       <find>aList</find>
+      <find>drawObject</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,10 +130,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="y" value="7" />
-    <option name="width" value="1937" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="y" value="5" />
+    <option name="width" value="1940" />
     <option name="height" value="1020" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -296,10 +308,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="6" width="1549" height="816" extended-state="1" />
+    <frame x="-8" y="4" width="1552" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.116633534" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11640212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -323,6 +335,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="791" column="8" selection-start-line="791" selection-start-column="8" selection-end-line="791" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithm_PyGame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="350" column="57" lean-forward="true" selection-start-line="350" selection-start-column="57" selection-end-line="350" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#577#977#0" />
+            <element signature="e#577#824#1" />
+            <element signature="e#1288#1541#0" />
+            <element signature="e#1283#1434#1" />
+            <element signature="e#1570#3120#0" />
+            <element signature="e#1565#1784#1" />
+            <element signature="e#1410#1425#0" />
+            <element signature="e#3614#3850#0" />
+            <element signature="e#3595#3773#1" />
+            <element signature="e#4034#5758#0" />
+            <element signature="e#5120#5255#1" />
+            <element signature="e#7369#7831#0" />
+            <element signature="e#9727#10187#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bubble_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4313">
+          <caret line="230" column="27" selection-start-line="230" selection-start-column="27" selection-end-line="230" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -361,26 +403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bubble_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="256" column="31" lean-forward="true" selection-start-line="214" selection-end-line="256" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Algorithm_PyGame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="358" column="34" selection-start-line="358" selection-start-column="34" selection-end-line="358" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#4779#5188#0" />
-            <element signature="e#5137#5524#0" />
-            <element signature="e#7313#9530#0" />
-          </folding>
         </state>
       </provider>
     </entry>
